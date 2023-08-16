@@ -4,6 +4,6 @@ import { asyncHandler } from '../middleware/asyncHandler';
 
 const router = Router();
 
-router.post('/token', AuthController.getDataClient, asyncHandler(AuthController.createToken));
+router.post('/token', [AuthController.getHeaderData, asyncHandler(AuthController.validationRequest)], asyncHandler(AuthController.createToken));
 
 export default router;
