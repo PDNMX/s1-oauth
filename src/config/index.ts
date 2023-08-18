@@ -12,8 +12,15 @@ const config = {
         issuer: process.env.JWT_ISSUER
     },
     // The basic API port and prefix configuration values are:
-    port: process.env.PORT || 3000,
-    prefix: process.env.API_PREFIX || 'api'
+    port: process.env.API_PORT || 3000,
+    prefix: process.env.API_PREFIX || 'api',
+    oauth_mongodb: {
+        host: process.env.MONGO_OAUTH_HOST,
+        user: process.env.MONGO_OAUTH_USER,
+        pass: process.env.MONGO_OAUTH_PASS,
+        port: process.env.MONGO_OAUTH_PORT,
+        database: process.env.MONGO_OAUTH_DATABASE
+    }
 };
 
 // Make our confirmation object available to the rest of our code.
