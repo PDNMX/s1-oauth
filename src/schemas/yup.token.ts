@@ -11,7 +11,7 @@ export interface Token {
   password: string;
   scope?: string;
   client_secret: string;
-  client_pass: string;
+  client_id: string;
 }
 
 export const tokenSchema = object({
