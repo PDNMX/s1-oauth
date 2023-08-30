@@ -2,17 +2,18 @@ import mongoose from 'mongoose';
 import debug from 'debug';
 import config from '../../config';
 
-const { host, user, pass, port, database } = config.oauth_mongodb;
+const { host, user, pass, port, database, authSource } = config.oauth_mongodb;
 const log: debug.IDebugger = debug('app:mongoose-service');
 
 class MongooseService {
     private count = 0;
-    private url = `mongodb://${user}:${pass}@${host}:${port}/?authMechanism=DEFAULT&authSource=${database}`;
+    private url = `mongodb://${user}:${pass}@${host}:${port}/${database}?authMechanism=DEFAULT&authSource=${authSource}`;
 
     private mongooseOptions = {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         serverSelectionTimeoutMS: 5000,
+        autoIndex: false, // Don't build indexes        
     };
 
     constructor() {
