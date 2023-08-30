@@ -14,7 +14,8 @@ const config = {
         user: process.env.MONGO_OAUTH_USER || 'root',
         pass: process.env.MONGO_OAUTH_PASS || 'soporte',
         port: process.env.MONGO_OAUTH_PORT || 27017,
-        database: process.env.MONGO_OAUTH_DATABASE || 'admin'
+        database: process.env.MONGO_OAUTH_DATABASE || 'admin',
+        authSource: process.env.MONGO_OAUTH_DB_AUTH || 'admin'
     }
 };
 
