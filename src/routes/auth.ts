@@ -4,7 +4,7 @@ import { asyncHandler } from '../middleware/asyncHandler';
 
 const router = Router();
 
-const validations = [AuthController.getHeaderData, asyncHandler(AuthController.validationRequest), AuthController.validationRequestData];
+const validations = [AuthController.getHeaderData, asyncHandler(AuthController.validationRequest), asyncHandler(AuthController.validationRequestData)];
 
 router.post('/token', validations, asyncHandler(AuthController.createToken));
 
