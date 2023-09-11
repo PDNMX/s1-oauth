@@ -1,14 +1,20 @@
+import debug from 'debug';
 import * as dotenv from 'dotenv';
+
 dotenv.config();
 
+
+const log: debug.IDebugger = debug('app:config');
 const config = {
     jwt: {
         secret: process.env.JWT_SECRET,
         audience: process.env.JWT_AUDIENCE,
-        issuer: process.env.JWT_ISSUER
+        issuer: process.env.JWT_ISSUER,
+        token_ttl: process.env.JWT_TOKEN_TTL || 3600,
+        refresh_token_ttl: process.env.JWT_REFRESH_TOKEN_TTL,
     },
-    port: process.env.API_PORT || 3000,
-    prefix: process.env.API_PREFIX || 'api',
+    port: process.env.API_OAUTH_PORT || 3000,
+    prefix: process.env.API_OAUTH_PREFIX || 'api',
     oauth_mongodb: {
         host: process.env.MONGO_OAUTH_HOST || '127.0.0.1',
         user: process.env.MONGO_OAUTH_USER || 'root',
@@ -19,4 +25,5 @@ const config = {
     }
 };
 
+log("config: ", config);
 export default config;
