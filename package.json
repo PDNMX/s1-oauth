@@ -6,7 +6,8 @@
   "author": "Benito Perdomo <benito.perdomo.v@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "DEBUG=app:* ts-node-dev src/index.ts"
+    "debug": "DEBUG=app:* ts-node-dev src/index.ts",
+    "start": "ts-node-dev src/index.ts"
   },
   "devDependencies": {
     "@types/basic-auth": "^1.1.3",
