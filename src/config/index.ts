@@ -16,11 +16,11 @@ const config = {
     port: process.env.API_OAUTH_PORT || 3000,
     prefix: process.env.API_OAUTH_PREFIX || 'api',
     oauth_mongodb: {
-        host: process.env.MONGO_OAUTH_HOST || '127.0.0.1',
-        user: process.env.MONGO_OAUTH_USER || 'root',
-        pass: process.env.MONGO_OAUTH_PASS || 'soporte',
+        host: process.env.MONGO_OAUTH_HOST || '',
+        user: process.env.MONGO_OAUTH_USER || '',
+        pass: process.env.MONGO_OAUTH_PASS || '',
         port: process.env.MONGO_OAUTH_PORT || 27017,
-        database: process.env.MONGO_OAUTH_DATABASE || 'admin',
+        database: process.env.MONGO_OAUTH_DATABASE || 's1-oauth',
         authSource: process.env.MONGO_OAUTH_DB_AUTH || 'admin'
     }
 };
